@@ -4,11 +4,10 @@
     <meta charset="utf-8">
     <title>Random Canvas Circles</title>
     <style>
-      html {
-        width: 100%;
-        height: inherit;
-        background: #ddd;
-      }
+      html, body {
+	    height: 100%;
+	    background: #000;
+	}
 	
 
       body {
@@ -16,7 +15,8 @@
       }
       	
       canvas {
-        display: block;
+        display: none;
+        background:#ccc;
       }
 
       #start{
@@ -24,20 +24,14 @@
 	    transform: translate(-50%,-50%);
 	    top: 50%;
 	    left: 50%;
+	    margin:0;
 	    text-shadow: 3px 4px darkorange;
 	    font-size: 5em;
-	}
-	
-	#start:hover {
-	    transition: all 0.5s;
-	    transform: translate(40%,100%)
+	    color: #333;
+	    cursor: pointer;
+	    
 	}
 
-      button {
-        position: absolute;
-        top: 5px;
-        left: 5px;
-      }
     </style>
   </head>
   <body>
@@ -46,7 +40,7 @@
 	<canvas></canvas>    
 
     <script>
-    var btn = document.querySelector('button');
+    var btn = document.getElementById('start');
     var canvas = document.querySelector('canvas');
     var ctx = canvas.getContext('2d');
 
@@ -59,8 +53,13 @@
     function random(number) {
       return Math.floor(Math.random()*number);
     }
-
-    draw();
+	
+	function startAnimation(){
+		btn.style.display='none';
+		canvas.style.display='block';
+		draw();
+    	setInterval(draw,1000);
+    }
 
     function draw() {
       ctx.clearRect(0,0,WIDTH,HEIGHT);
@@ -73,7 +72,7 @@
       }
     }
 
-   btn.addEventListener('click',draw);
+   btn.addEventListener('click',startAnimation);
       
     </script>
     
