@@ -10,14 +10,28 @@
         background: #ddd;
       }
 	
-	
-      canvas {
-        display: block;
-      }
 
       body {
         margin: 0;
       }
+      	
+      canvas {
+        display: block;
+      }
+
+      #start{
+	    position: absolute;
+	    transform: translate(-50%,-50%);
+	    top: 50%;
+	    left: 50%;
+	    text-shadow: 3px 4px darkorange;
+	    font-size: 5em;
+	}
+	
+	#start:hover {
+	    transition: all 0.5s;
+	    transform: translate(40%,100%)
+	}
 
       button {
         position: absolute;
@@ -28,8 +42,8 @@
   </head>
   <body>
 
-	
-  <canvas></canvas>    
+	<h1 id="start">CLICK ME!</h1>	
+	<canvas></canvas>    
 
     <script>
     var btn = document.querySelector('button');
